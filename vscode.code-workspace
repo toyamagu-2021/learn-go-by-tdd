@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "arrays-and-slices"
+		},
+		{
+			"path": "structs-methods-and-interfaces"
 		}
 	],
 	"settings": {}
