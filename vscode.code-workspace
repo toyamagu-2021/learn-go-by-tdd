@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "integers"
+		},
+		{
+			"path": "iteration"
 		}
 	],
 	"settings": {}
