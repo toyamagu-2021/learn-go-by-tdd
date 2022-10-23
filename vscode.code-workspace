@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "iteration"
+		},
+		{
+			"path": "arrays-and-slices"
 		}
 	],
 	"settings": {}
