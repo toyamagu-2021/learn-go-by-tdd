@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "structs-methods-and-interfaces"
+		},
+		{
+			"path": "pointer-and-error"
 		}
 	],
 	"settings": {}
