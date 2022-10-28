@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "map"
+		},
+		{
+			"path": "dependency-injection"
 		}
 	],
 	"settings": {}
