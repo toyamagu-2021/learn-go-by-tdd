@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "dependency-injection"
+		},
+		{
+			"path": "stab-mock"
 		}
 	],
 	"settings": {}
