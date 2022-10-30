@@ -38,6 +38,9 @@
 		},
 		{
 			"path": "sync"
+		},
+		{
+			"path": "context"
 		}
 	],
 	"settings": {}
