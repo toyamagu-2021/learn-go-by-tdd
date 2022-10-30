@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "stab-mock"
+		},
+		{
+			"path": "concurrency"
 		}
 	],
 	"settings": {}
