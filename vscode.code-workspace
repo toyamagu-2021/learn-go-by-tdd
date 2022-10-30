@@ -41,6 +41,9 @@
 		},
 		{
 			"path": "context"
+		},
+		{
+			"path": "roman-numerals"
 		}
 	],
 	"settings": {}
