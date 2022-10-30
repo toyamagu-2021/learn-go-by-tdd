@@ -31,8 +31,11 @@
 			"path": "concurrency"
 		},
 		{
+			"path": "select"
+		},
+		{
 			"path": "reflection"
-		}
+		},
 	],
 	"settings": {}
 }
