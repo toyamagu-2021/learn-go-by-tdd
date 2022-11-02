@@ -49,7 +49,10 @@
 			"path": "math"
 		},
 		{
-			"path": "application"
+			"path": "http-server"
+		},
+		{
+			"path": "json"
 		}
 	],
 	"settings": {}
