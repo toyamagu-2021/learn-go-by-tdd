@@ -62,6 +62,9 @@
 		},
 		{
 			"path": "time"
+		},
+		{
+			"path": "websockets"
 		}
 	],
 	"settings": {}
