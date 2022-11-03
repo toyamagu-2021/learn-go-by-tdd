@@ -56,6 +56,9 @@
 		},
 		{
 			"path": "io"
+		},
+		{
+			"path": "command-line"
 		}
 	],
 	"settings": {}
