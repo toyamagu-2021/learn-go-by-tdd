@@ -10,17 +10,23 @@ import (
 )
 
 type GameSpy struct {
-	StartedWith  int
-	FinishedWith string
-	StartCalled  bool
+	StartCalled     bool
+	StartCalledWith int
+	BlindAlert      []byte
+
+	FinishedCalled    bool
+	FinisheCalledWith string
 }
 
-func (g *GameSpy) Start(numberOfPlayers int, alertsDestination io.Writer) {
-	g.StartedWith = numberOfPlayers
+func (g *GameSpy) Start(numberOfPlayers int, out io.Writer) {
+	g.StartCalled = true
+	g.StartCalledWith = numberOfPlayers
+	out.Write(g.BlindAlert)
 }
 
 func (g *GameSpy) Finish(winner string) {
-	g.FinishedWith = winner
+	g.FinishedCalled = true
+	g.FinisheCalledWith = winner
 }
 
 type StubPlayerStore struct {
@@ -92,15 +98,33 @@ func AssertMessagesSentToUser(t testing.TB, stdout *bytes.Buffer, messages ...st
 func AsserGameStartedWith(t testing.TB, game *GameSpy, numberOfPeople int) {
 	t.Helper()
 
-	if game.StartedWith != numberOfPeople {
-		t.Errorf("wanted Start called with %d but got %d", numberOfPeople, game.StartedWith)
+	passed := retryUntil(500*time.Millisecond, func() bool {
+		return game.StartCalledWith == numberOfPeople
+	})
+
+	if !passed {
+		t.Errorf("wanted %d, but got %d", numberOfPeople, game.StartCalledWith)
 	}
 }
 
 func AsserGameFinishedWith(t testing.TB, game *GameSpy, winner string) {
 	t.Helper()
 
-	if game.FinishedWith != winner {
-		t.Errorf("wanted %q but got %q", winner, game.FinishedWith)
+	passed := retryUntil(500*time.Millisecond, func() bool {
+		return game.FinisheCalledWith == winner
+	})
+
+	if !passed {
+		t.Errorf("want %q, got %q", winner, game.StartCalledWith)
 	}
+}
+
+func retryUntil(d time.Duration, f func() bool) bool {
+	deadline := time.Now().Add(d)
+	for time.Now().Before(deadline) {
+		if f() {
+			return true
+		}
+	}
+	return false
 }
