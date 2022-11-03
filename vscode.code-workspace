@@ -59,6 +59,9 @@
 		},
 		{
 			"path": "command-line"
+		},
+		{
+			"path": "time"
 		}
 	],
 	"settings": {}
